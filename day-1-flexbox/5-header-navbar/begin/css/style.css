@@ -50,6 +50,59 @@ section ul {
     margin: 0;
 }
 
+/* header & nav styles */
+.header {
+    background-color: var(--color5);
+}
+
+header {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* navigation styling: universal accross breakpoints */
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: space-between;
+}
+
+nav li {
+    flex-basis: 48%;
+    margin-bottom: 0.5rem;
+}
+
+nav li:first-child {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    background-color: var(--color10);
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+nav a:hover {
+    background-color: var(--color1);
+    color: var(--color5);
+}
+
+nav li:first-child a {
+    background-color: transparent;
+}
+
 
 /* To keep mobile screens from being stupid long, consider setting a max height on the images and hide the overflow. 
 
@@ -205,35 +258,61 @@ footer address {
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
 @media (min-width: 550px) {
+
     section ul,
     footer {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
     }
+
     section li,
     .social,
     address {
         flex-basis: 49.5%;
     }
+
     /* turn off object position, inherit object-fit: cover */
     figure img {
         object-position: 0;
     }
+
     /* display: flow-root clears the float!!!! max-width keeps the text line length shorter */
     .missiontext {
         display: flow-root;
         max-width: 900px;
     }
+
     /* working with an image with a wide width so we have flexibility to set the shape-outside polygon points where we want. The edges of the image limit their placement. In Firefox, you can draw with shape-outside in browser tools */
     .missionimg {
         float: left;
         shape-outside: polygon(35.84% 94.87%, 34.64% 87.05%, 51.64% 4.06%, 55.1% 2.38%);
         max-height: 211px;
     }
+
     /* remove the top margin assigned above that provided space between .social and address */
     footer address {
         margin-top: 0;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 1.2em;
+    }
+
+    nav li {
+        flex-basis: auto;
+        margin-bottom: 0;
+    }
+
+    nav a {
+        color: var(--color1);
+        background-color: transparent;
+    }
+
+    nav a:hover {
+        color: var(--color2);
+        background-color: transparent;
     }
 }
 
@@ -241,11 +320,35 @@ footer address {
     section h2 {
         margin-left: 100px;
     }
+
     section li,
     .social {
         flex-basis: 32.5%;
     }
+
     address {
         flex-basis: 65.5%;
+    }
+
+    /* navigation logo is in the center */
+    nav ul {
+        justify-content: flex-end;
+    }
+
+    nav li:first-child {
+        flex-basis: auto;
+        margin: 0 auto;
+        order: 2;
+    }
+
+    nav li:nth-child(2),
+    nav li:nth-child(3) {
+        order: 1;
+
+    }
+
+    nav li:nth-child(4),
+    nav li:nth-child(5) {
+        order: 3;
     }
 }
