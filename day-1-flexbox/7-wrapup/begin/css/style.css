@@ -233,6 +233,20 @@ figcaption a {
     color: var(--color8);
 }
 
+/* Popular Prints styles */
+.popular-container {
+    background-color: var(--color2);
+    color: white;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 5rem;
+}
+
+#popular figure img {
+    object-position: 0px -70px;
+}
+
 
 /* mission styles */
 
@@ -303,54 +317,73 @@ footer address {
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
 @media (min-width: 550px) {
+
     section ul,
     footer {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
     }
+
     section li,
     .social,
     address {
         flex-basis: 49.5%;
     }
+
+    #popular li:nth-child(3) {
+        flex-basis: 100%;
+    }
+
+    #popular li:last-child figure img {
+        object-position: 0 -320px;
+    }
+
     /* turn off object position, inherit object-fit: cover */
     figure img {
         object-position: 0;
     }
+
     /* display: flow-root clears the float!!!! max-width keeps the text line length shorter */
     .missiontext {
         display: flow-root;
         max-width: 900px;
     }
+
     /* working with an image with a wide width so we have flexibility to set the shape-outside polygon points where we want. The edges of the image limit their placement. In Firefox, you can draw with shape-outside in browser tools */
     .missionimg {
         float: left;
         shape-outside: polygon(35.84% 94.87%, 34.64% 87.05%, 51.64% 4.06%, 55.1% 2.38%);
         max-height: 211px;
     }
+
     /* remove the top margin assigned above that provided space between .social and address */
     footer address {
         margin-top: 0;
     }
+
     /* header/nav layout */
     header {
         padding: 3rem;
     }
+
     /* navigation: logo on the top line, the rest of the navigation on the second line */
     nav ul {
         justify-content: center;
         gap: 1.2em;
     }
+
     nav li {
         flex-basis: auto;
         margin-bottom: 0;
     }
+
     nav a {
         color: var(--color1);
         background-color: transparent;
         padding: 0;
     }
+
     nav a:hover {
         color: var(--color2);
         background-color: transparent;
@@ -361,28 +394,50 @@ footer address {
     section h2 {
         margin-left: 100px;
     }
+
     section li,
-    .social {
+    .social,
+    #popular li:nth-child(3) {
         flex-basis: 32.5%;
     }
+
+    #popular li:last-child figure img {
+        object-position: 0 -120px;
+    }
+
     address {
         flex-basis: 65.5%;
     }
+
     /* navigation - logo in the center */
     nav ul {
         justify-content: flex-end;
     }
+
     nav li:first-child {
         flex-basis: auto;
         margin: 0 auto;
         order: 2;
     }
+
     nav li:nth-child(2),
     nav li:nth-child(3) {
         order: 1;
     }
+
     nav li:nth-child(4),
     nav li:nth-child(5) {
         order: 3;
+    }
+
+    .popular-container {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .popular-container h2 {
+        text-align: left;
     }
 }
