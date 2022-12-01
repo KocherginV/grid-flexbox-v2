@@ -1,4 +1,4 @@
-/* colors - see style guide for docs. 
+/* colors - see style guide for docs.
 Clearly there is more you could place in variables, up to you if you want to use them. My answer does not go beyond colors to keep the code easier to read. */
 
 :root {
@@ -48,6 +48,9 @@ section ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-flow: column;
+    row-gap: 10px;
 }
 
 
@@ -138,12 +141,12 @@ nav a:hover {
 }
 
 
-/* To keep mobile screens from being stupid long, consider setting a max height on the images and hide the overflow. 
+/* To keep mobile screens from being stupid long, consider setting a max height on the images and hide the overflow.
 
 Spelled out the individual border styles so border-color could go elsewhere. Styling is the same for all borders except the color. */
 
 figure {
-    margin: 0 0 0.5rem 0;
+    margin: 0;
     padding: 0;
     max-height: 400px;
     overflow: hidden;
@@ -151,6 +154,7 @@ figure {
     border-width: 10px;
     border-style: solid;
     border-radius: 5px;
+    height: 100%;
 }
 
 
@@ -161,6 +165,7 @@ figure img {
     width: 100%;
     object-fit: cover;
     object-position: 0 -150px;
+    height: 100%;
 }
 
 figcaption {
@@ -188,10 +193,11 @@ figcaption a {
 
 #featured figure {
     max-height: 650px;
+    height: 400px;
 }
 
 #featured img {
-    object-position: 0;
+    object-position: center;
 }
 
 
@@ -264,6 +270,9 @@ figcaption a {
     display: block;
 }
 
+#collections {
+    margin-bottom: 1.5rem;
+}
 
 /* footer styles */
 
@@ -317,6 +326,13 @@ footer address {
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
 @media (min-width: 550px) {
+    #featured figure {
+        height: auto;
+    }
+
+    #featured img {
+        object-position: 0;
+    }
 
     section ul,
     footer {
@@ -402,7 +418,7 @@ footer address {
     }
 
     #popular li:last-child figure img {
-        object-position: 0 -120px;
+        object-position: 0;
     }
 
     address {
