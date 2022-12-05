@@ -154,7 +154,9 @@ figure {
     border-radius: 5px;
 }
 
-
+#popart figure {
+    border-color: var(--color8);
+}
 /* strange open space at the bottom of the box which shows through the transparent overlay - this kills it */
 
 figure img {
@@ -162,6 +164,11 @@ figure img {
     width: 100%;
     object-fit: cover;
     object-position: 0 -150px;
+}
+
+#popart figure img {
+    object-position: 0;
+    object-fit: cover;
 }
 
 figcaption {
@@ -309,7 +316,6 @@ footer address {
     font-weight: bold;
 }
 
-
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
 @media (min-width: 550px) {
@@ -329,6 +335,9 @@ footer address {
     }
     #popular li:last-child figure img {
         object-position: 0 -350px;
+    }
+    figure {
+        max-height: 100%;
     }
     /* turn off object position, inherit object-fit: cover */
     figure img {
@@ -371,6 +380,31 @@ footer address {
         color: var(--color2);
         background-color: transparent;
     }
+    #popart ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .colspan2 {
+        grid-column: span 2;
+    }
+
+    .colspan3 {
+        grid-column: span 3;
+    }
+
+    .rowspan2 {
+        grid-row: span 2;
+    }
+
+    .rowspan2 figure {
+        max-height: unset;
+    }
+
+    figure {
+        height: 100%;
+    }
 }
 
 @media (min-width: 800px) {
@@ -384,6 +418,9 @@ footer address {
     }
     #popular li:last-child figure img {
         object-position: 0;
+    }
+    #popular li:last-child figure {
+        max-height: 100%;
     }
     address {
         flex-basis: 65.5%;
