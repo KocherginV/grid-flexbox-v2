@@ -1,0 +1,312 @@
+:root {
+    --color1: #001219;
+    --color2: #005f73;
+    --color3: #3d9397;
+    --color4: #94d28d;
+    --color5: #e9d8a6;
+    --color6: #ee9800;
+    --color7: #ca6702;
+    --color8: #bb3e03;
+    --color9: #ae2012;
+    --color10: #9b2226;
+}
+
+
+/* generic site styles */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #DBE5DE;
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto 5rem auto;
+    padding: 0 1rem;
+}
+
+section h2 {
+    font-size: 2.5rem;
+}
+
+section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* header and nav styles */
+
+
+/* stretches completely across the page with the color */
+
+.header {
+    background-color: var(--color5);
+}
+
+
+/* width limited and centered to line up with the rest of the page */
+
+header {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* navigation styling - universal across breakpoints */
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Here, because the nav is short, let's try a 4 button layout at the top of the screen.
+*/
+
+nav ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: space-between;
+}
+
+nav li {
+    flex-basis: 48%;
+    margin-bottom: 0.5rem;
+}
+
+nav li:first-child {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+nav li:first-child a {
+    background-color: transparent;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    display: block;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: var(--color10);
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: var(--color1);
+    color: var(--color5);
+}
+
+article {
+    margin-bottom: 10px;
+}
+
+article a {
+    color: var(--color3);
+}
+
+article a:hover {
+    text-decoration: none;
+    color: var(--color2);
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+/* footer styles */
+
+
+/* color stretches to 100% of the page width */
+
+.footer {
+    background-color: var(--color5);
+}
+
+
+/* width limited and centered to line up with the rest of the page */
+
+footer {
+    padding: 3rem;
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* h4 top margin comes from the browser - it prevents the top of the .social element and the address from aligning */
+
+footer h4 {
+    margin-top: 0;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+/* we want a constant distance between the buttons so they remain clickable at all times. flex-basis doesn't do that - sometimes the buttons are too close together. */
+
+footer li {
+    margin-right: 1rem;
+}
+
+footer address {
+    font-style: normal;
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
+@media (min-width: 550px) {
+    footer {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+
+    address {
+        flex-basis: 49.5%;
+    }
+
+    /* remove the top margin assigned above that provided space between .social and address */
+    footer address {
+        margin-top: 0;
+    }
+
+    /* header/nav layout */
+    header {
+        padding: 3rem;
+    }
+
+    /* navigation: logo on the top line, the rest of the navigation on the second line */
+    nav ul {
+        justify-content: center;
+        gap: 1.2em;
+    }
+
+    nav li {
+        flex-basis: auto;
+        margin-bottom: 0;
+    }
+
+    nav a {
+        color: var(--color1);
+        background-color: transparent;
+        padding: 0;
+    }
+
+    nav a:hover {
+        color: var(--color2);
+        background-color: transparent;
+    }
+}
+
+@media (min-width: 800px) {
+    address {
+        flex-basis: 65.5%;
+    }
+
+    /* navigation - logo in the center */
+    nav ul {
+        justify-content: flex-end;
+    }
+
+    nav li:first-child {
+        flex-basis: auto;
+        margin: 0 auto;
+        order: 2;
+    }
+
+    nav li:nth-child(2),
+    nav li:nth-child(3) {
+        order: 1;
+    }
+
+    nav li:nth-child(4),
+    nav li:nth-child(5) {
+        order: 3;
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    ul li {
+        margin-bottom: unset;
+    }
+
+    .list-item1 {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .list-item2 {
+        grid-column: 1/2;
+        grid-row: 1/4;
+    }
+
+    .list-item3 {
+        grid-column: 1/2;
+        grid-row: 4/6;
+    }
+
+    .list-item4 {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    .list-item5 {
+        grid-column: 2/3;
+        grid-row: 3/6;
+    }
+
+    .list-item1 img {
+        opacity: 0.3;
+    }
+
+    .list-item1 img,
+    .author {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .author {
+        padding: 20px;
+        z-index: 1000;
+    }
+
+}
